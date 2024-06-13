@@ -1,0 +1,27 @@
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.0;
+
+contract Incentivereceived {
+   
+    function incentivecal(uint256 _basesalary, uint256 _salaryreceived) external pure returns (uint256) {
+
+        // require statement
+        require(_basesalary == 5000 , "Salary shoould always be 5000");
+
+        // assert statement
+        assert(_salaryreceived >= _basesalary);
+
+        // calculating incentive
+        uint256 _incentive = _salaryreceived - _basesalary;
+       
+
+        // revert statement
+        if (_incentive < 5000) {
+             
+
+            revert(" Incentive received but less than salary");
+        }
+
+        return _incentive;
+    }
+}
